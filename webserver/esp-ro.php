@@ -2,6 +2,7 @@
 
 // GENEREAZĂ FIȘIER BMP PENTRU EPD Dashboard în limba Română
 // încă nu sunt traduse descrierile (vezi $weather[0]['description'])
+// ai nevoie de un server web, PHP si Imagemagick instalat
 
 header("Content-Type: image/bmp");
 
@@ -137,7 +138,10 @@ for ($i = 0; $i < $col; $i++) {
 
 imagepng($im, 'imagini/image.png');
 imagedestroy($im);
+
+// executa comanda Imagemagick convert intrucat comanda PHP imagebmp() nu produce o imagine afisabila de catre libraria GxEPD
 exec("convert imagini/image.png BMP3:imagini/image.bmp");
+
 header("Content-Length: " . filesize('imagini/image.bmp'));
 $fp = fopen('imagini/image.bmp', 'rb');
 fpassthru($fp);
