@@ -1,7 +1,8 @@
 <?php
 
 
-// GENERATES THE BMP FILE FOR YOUR EPD Weather Dashboard in English text
+// GENERATES THE BMP FILE FOR YOUR EPD Weather Dashboard, English text
+// you need a webserver, PHP and Imagemagick installed
 
 
 header("Content-Type: image/bmp");
@@ -135,7 +136,11 @@ for ($i = 0; $i < $col; $i++) {
 
 imagepng($im, 'imagini/image.png');
 imagedestroy($im);
+
+// executes Imagemagick convert because GxEPD library can not display the image produced by PHP's imagebmp() command.
 exec("convert imagini/image.png BMP3:imagini/image.bmp");
+
+
 header("Content-Length: " . filesize('imagini/image.bmp'));
 $fp = fopen('imagini/image.bmp', 'rb');
 fpassthru($fp);
