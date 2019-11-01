@@ -11,7 +11,7 @@ Main components are:
 
 Trigboard is a ESP8266 ultra low power standby device. It wakes up and powers the ESP and display and then goes back to ULP sleep. The timer can be programmed by changing a resistor and I chose one that wakes up the device once every ~30 minutes.
 
-After waking up the ESP connects to a intranet web server and fetches a 640x384 pixel bmp file that then displays. After finishing it signals the timer chip that it is done and power is removed. Countdown of a new sleep period begins.
+After waking up, the ESP connects to a intranet web server and fetches a 640x384 pixel bmp file that it then displays. After finishing, it signals the timer chip that it is done and power is removed. Countdown of a new sleep period begins.
 
 My goal was a complete freedom to setup the display. Using the ESP to generate the display data meant always changing the programming on the chip, updating its flash and so on. Pretty cumbersome. Moving the display data creation to a local webserver and fetching just the bmp file allowed me change anything at any time, without bothering the display unit itself.
 
