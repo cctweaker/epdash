@@ -19,3 +19,5 @@ Initial project was a weather display. Data was retreived by json and set up on 
 
 
 
+Sample output:
+https://github.com/cctweaker/epdash/blob/master/webserver/imagini/image.png
